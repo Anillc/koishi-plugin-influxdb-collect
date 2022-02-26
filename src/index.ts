@@ -31,7 +31,7 @@ function collect(ctx: Context, config: Config) {
         }
         pointBuilder.write()
     })
-    ctx.before('command', (argv) => {
+    ctx.before('command/execute', (argv) => {
         let pointBuilder = ctx.influxdb.point(config.mesurementName)
             .tag('command', argv.command.name)
             .tag('user', argv.session.userId)
